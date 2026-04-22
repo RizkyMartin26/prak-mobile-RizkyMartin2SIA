@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Raseo Apps</string>
+    <string name="welcome_text">Selamat Sore Dunia</string>
+    <string name="btn_send">Kirim</string>
 </resources>

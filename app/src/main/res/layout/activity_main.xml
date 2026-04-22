@@ -4,35 +4,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <TextView
+    <Button
+        android:id="@+id/btnToFourth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="240dp"
+        android:text="Pertemuan 4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnToSixth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="155dp"
-        tools:layout_editor_absoluteY="114dp" />
+        android:layout_marginTop="16dp"
+        android:text="Pertemuan 6"
+        app:layout_constraintEnd_toEndOf="@+id/btnToFourth"
+        app:layout_constraintStart_toStartOf="@+id/btnToFourth"
+        app:layout_constraintTop_toBottomOf="@+id/btnToFourth" />
 
-
-
-    <EditText
-        android:id="@+id/editTextPhone"
+    <Button
+        android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="phone"
-        tools:layout_editor_absoluteX="100dp"
-        tools:layout_editor_absoluteY="478dp" />
+        android:layout_marginTop="16dp"
+        android:text="Logout"
+        app:layout_constraintEnd_toEndOf="@+id/btnToSixth"
+        app:layout_constraintStart_toStartOf="@+id/btnToSixth"
+        app:layout_constraintTop_toBottomOf="@+id/btnToSixth" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
