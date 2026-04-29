@@ -13,13 +13,17 @@
         android:theme="@style/Theme.RaseoApps">
 
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".BaseActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".SplashScreenActivity"
+            android:exported="false" />
 
         <activity
             android:name=".AuthActivity"
@@ -30,20 +34,25 @@
             android:exported="false" />
 
         <activity
-            android:name=".SixthActivity"
+            android:name=".pertemuan_6.AuthActivity"
             android:exported="false" />
 
         <activity
-            android:name=".pertemuan4.FourthActivity"
+            android:name=".home.pertemuan_4.FourthActivity"
             android:exported="false" />
+
         <activity
-            android:name=".pertemuan_3.ThirdResultActivity"
+            android:name=".home.pertemuan_3.ThirdResultActivity"
             android:exported="false" />
+
         <activity
-            android:name=".pertemuan_2.SecondActivity"
+            android:name=".home.pertemuan_2.SecondActivity"
             android:exported="false" />
+
         <activity
-            android:name=".pertemuan_3.ThirdActivity"
+            android:name=".home.pertemuan_3.ThirdActivity"
+            android:exported="false" />
+        <activity android:name=".pertemuan_6.SixthActivity"
             android:exported="false"/>
     </application>
 

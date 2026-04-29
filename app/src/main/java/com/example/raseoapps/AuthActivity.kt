@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import com.example.raseoapps.databinding.ActivityAuthBinding
 
 class AuthActivity : AppCompatActivity() {
@@ -18,16 +19,23 @@ class AuthActivity : AppCompatActivity() {
 
         val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
 
+        // Cek jika sudah login, langsung ke MainActivity
+        if (sharedPref.getBoolean("isLogin", false)) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+
         binding.btnLogin.setOnClickListener {
             val username = binding.etUsername.text.toString()
             val password = binding.etPassword.text.toString()
 
             if (username.isNotEmpty() && username == password) {
-                // Simpan status login ke SharedPreferences
-                val editor = sharedPref.edit()
-                editor.putBoolean("isLogin", true)
-                editor.putString("username", username)
-                editor.apply()
+                // Simpan status login ke SharedPreferences menggunakan KTX edit
+                sharedPref.edit {
+                    putBoolean("isLogin", true)
+                    putString("username", username)
+                    apply()
+                }
 
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)

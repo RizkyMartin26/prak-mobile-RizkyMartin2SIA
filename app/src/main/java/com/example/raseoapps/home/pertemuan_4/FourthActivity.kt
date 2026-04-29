@@ -1,4 +1,4 @@
-package com.example.raseoapps.pertemuan4
+package com.example.raseoapps.home.pertemuan_4
 
 import android.content.Intent
 import android.os.Bundle
@@ -14,13 +14,10 @@ class FourthActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.e("onCreate", "FourthActivity dibuat pertama kali")
         binding = ActivityFourthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.btnBack.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
             finish()
         }
 
@@ -43,15 +40,5 @@ class FourthActivity : AppCompatActivity() {
                 }
                 .show()
         }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        Log.e("onStart", "onStart: FourthActivity terlihat di layar")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.e("onDestroy", "FourthActivity dihapus dari stack")
     }
 }

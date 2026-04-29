@@ -1,4 +1,4 @@
-package com.example.raseoapps
+package com.example.raseoapps.pertemuan_6
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

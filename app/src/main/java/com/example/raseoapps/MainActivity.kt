@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.raseoapps.databinding.ActivityMainBinding
 import com.example.raseoapps.pertemuan4.FourthActivity
+import com.example.raseoapps.pertemuan_6.SixthActivity
 
 class MainActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.example.raseoapps.pertemuan_3
+package com.example.raseoapps.home.pertemuan_2
 
 import android.os.Bundle
 import android.util.Log
@@ -10,34 +10,25 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.raseoapps.R
-import com.example.raseoapps.databinding.ActivityThirdBinding
 
-
-class ThirdActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityThirdBinding
-
+class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityThirdBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_second)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        
+        val inputNama: EditText = findViewById(R.id.inputNama)
+        val btnSubmit: Button = findViewById(R.id.btnSubmit)
 
-        //Inisialisasi komponen
-        // Inisialisasi komponen
-        //val inputNoTujuan: EditText = findViewById(R.id.inputNoTujuan)
-        //val btnKirim: Button = findViewById(R.id.btnKirim)
-
-        binding.btnCalculate.setOnClickListener {
-            //Mengambil value dari inputNama dan menampilkan di Logcat
-            val nama = binding.etName.text
-
-            Toast.makeText(this, "Pesan berhasil dikirim ke $nama" , Toast.LENGTH_SHORT).show()
+        btnSubmit.setOnClickListener {
+            val nama = inputNama.text
+            Log.e("Klik btnSubmit","Tombol berhasil di tekan. Isi dari inputNama = $nama")
+            Toast.makeText(this, "Anda telah melakukan klik pada tombol Submit", Toast.LENGTH_SHORT).show()
         }
     }
 }
