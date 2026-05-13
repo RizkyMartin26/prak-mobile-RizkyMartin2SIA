@@ -5,11 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.edit
 import com.example.raseoapps.databinding.ActivityAuthBinding
 
 class AuthActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityAuthBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,9 +17,9 @@ class AuthActivity : AppCompatActivity() {
 
         val sharedPref = getSharedPreferences("user_pref", Context.MODE_PRIVATE)
 
-        // Cek jika sudah login, langsung ke MainActivity
+        // Cek status login
         if (sharedPref.getBoolean("isLogin", false)) {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, BaseActivity::class.java))
             finish()
         }
 
@@ -29,21 +27,19 @@ class AuthActivity : AppCompatActivity() {
             val username = binding.etUsername.text.toString()
             val password = binding.etPassword.text.toString()
 
+            // Sederhanakan login: username == password
             if (username.isNotEmpty() && username == password) {
-                // Simpan status login ke SharedPreferences menggunakan KTX edit
-                sharedPref.edit {
+                sharedPref.edit().apply {
                     putBoolean("isLogin", true)
                     putString("username", username)
                     apply()
                 }
-
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, BaseActivity::class.java))
                 finish()
             } else {
                 AlertDialog.Builder(this)
-                    .setTitle("Login Gagal")
-                    .setMessage("Silahkan coba lagi")
+                    .setTitle("Gagal")
+                    .setMessage("Username atau Password salah! (Gunakan Username yang sama dengan Password)")
                     .setPositiveButton("OK", null)
                     .show()
             }

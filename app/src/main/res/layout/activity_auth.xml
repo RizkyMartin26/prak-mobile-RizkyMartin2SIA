@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center_horizontal"
-    tools:context=".AuthActivity">
+    android:gravity="center_horizontal">
 
     <ImageView
-        android:id="@+id/imageViewLogo"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="50dp"
@@ -39,5 +34,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Login" />
+
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Belum punya akun? Register di sini"
+        android:textColor="#3F51B5" />
 
 </LinearLayout>
