@@ -12,7 +12,6 @@ class MessageFragment : Fragment() {
     private var _binding: FragmentMessageBinding? = null
     private val binding get() = _binding!!
 
-    // Menggunakan Dicebear PNG - Sangat handal dan pasti muncul
     private val messageList = listOf(
         MessageModel("Alya", "Halo! Apa kabar?", "https://api.dicebear.com/9.x/pixel-art/png?seed=Alya"),
         MessageModel("Budi", "Sudah makan?", "https://api.dicebear.com/9.x/pixel-art/png?seed=Budi"),
