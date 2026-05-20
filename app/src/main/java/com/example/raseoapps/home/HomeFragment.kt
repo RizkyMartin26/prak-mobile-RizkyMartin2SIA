@@ -12,6 +12,7 @@ import com.example.raseoapps.home.pertemuan_2.SecondActivity
 import com.example.raseoapps.home.pertemuan_4.FourthActivity
 import com.example.raseoapps.pertemuan_6.SixthActivity
 import com.example.raseoapps.home.pertemuan_9.NinthActivity
+import com.example.raseoapps.home.pertemuan_10.TenthActivity
 
 class HomeFragment : Fragment() {
 
@@ -32,8 +33,6 @@ class HomeFragment : Fragment() {
         binding.btnToSecond.setOnClickListener {
             startActivity(Intent(requireContext(), SecondActivity::class.java))
         }
-
-        // Pertemuan 3 (Kuis) dihapus
 
         binding.btnToFourth.setOnClickListener {
             val intent = Intent(requireContext(), FourthActivity::class.java)
@@ -57,6 +56,10 @@ class HomeFragment : Fragment() {
 
         binding.btnToNinth.setOnClickListener {
             startActivity(Intent(requireContext(), NinthActivity::class.java))
+        }
+
+        binding.btnToTenth.setOnClickListener {
+            startActivity(Intent(requireContext(), TenthActivity::class.java))
         }
     }
 

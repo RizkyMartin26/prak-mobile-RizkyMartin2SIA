@@ -29,6 +29,7 @@
         <activity android:name=".home.pertemuan_9.NinthActivity" android:exported="false" />
         <activity android:name=".home.pertemuan_4.FourthActivity" android:exported="false" />
         <activity android:name=".home.pertemuan_2.SecondActivity" android:exported="false" />
+        <activity android:name=".home.pertemuan_10.TenthActivity" android:exported="false" />
 
     </application>
 

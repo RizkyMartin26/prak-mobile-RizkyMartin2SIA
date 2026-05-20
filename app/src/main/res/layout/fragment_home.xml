@@ -107,10 +107,20 @@
                 android:id="@+id/btnToNinth"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_marginBottom="24dp"
+                android:layout_marginBottom="12dp"
                 android:text="Pertemuan 9"
                 android:textAllCaps="false"
                 app:backgroundTint="#FF9800"
+                app:cornerRadius="30dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnToTenth"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginBottom="24dp"
+                android:text="Pertemuan 10"
+                android:textAllCaps="false"
+                app:backgroundTint="#E91E63"
                 app:cornerRadius="30dp" />
 
         </LinearLayout>
