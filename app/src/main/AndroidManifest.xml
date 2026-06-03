@@ -15,7 +15,13 @@
         android:theme="@style/Theme.RaseoApps"
         android:usesCleartextTraffic="true">
 
-        <activity android:name=".BaseActivity" android:exported="true">
+        <activity
+            android:name=".message.tutorial.TutorialMessageActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".BaseActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -24,7 +30,6 @@
 
         <activity android:name=".MainActivity" android:exported="false" />
         <activity android:name=".SplashScreenActivity" android:exported="false" />
-
         <activity android:name=".pertemuan_6.SixthActivity" android:exported="false" />
         <activity android:name=".home.pertemuan_9.NinthActivity" android:exported="false" />
         <activity android:name=".home.pertemuan_4.FourthActivity" android:exported="false" />

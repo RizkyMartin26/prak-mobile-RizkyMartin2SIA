@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.glide)
     implementation(libs.androidx.gridlayout)
     implementation(libs.androidx.recyclerview)
+    implementation(libs.dotsindicator)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
