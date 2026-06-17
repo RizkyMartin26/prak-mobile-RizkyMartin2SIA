@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.raseoapps.AuthActivity
+import com.example.raseoapps.data.api.CatFactApiClient
 import com.example.raseoapps.data.api.PhotoApiClient
 import com.example.raseoapps.databinding.FragmentHomeBinding
 import com.example.raseoapps.home.pertemuan_2.SecondActivity
@@ -19,6 +20,7 @@ import com.example.raseoapps.home.pertemuan_4.FourthActivity
 import com.example.raseoapps.pertemuan_6.SixthActivity
 import com.example.raseoapps.home.pertemuan_9.NinthActivity
 import com.example.raseoapps.home.pertemuan_10.TenthActivity
+import com.example.raseoapps.home.pertemuan_13.ThirteenthActivity
 import com.example.raseoapps.home.photo.PhotoAdapter
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -71,6 +73,10 @@ class HomeFragment : Fragment() {
             startActivity(Intent(requireContext(), TenthActivity::class.java))
         }
 
+        binding.btnToThirteenth.setOnClickListener {
+            startActivity(Intent(requireContext(), ThirteenthActivity::class.java))
+        }
+
         // Logic Logout
         binding.btnLogout.setOnClickListener {
             AlertDialog.Builder(requireContext())
@@ -90,13 +96,13 @@ class HomeFragment : Fragment() {
         }
 
         binding.btnRefresh.setOnClickListener {
-            loadPhoto()
+            loadAllData()
         }
 
-        loadPhoto()
+        loadAllData()
     }
 
-    private fun loadPhoto() {
+    private fun loadAllData() {
         lifecycleScope.launch {
             // Tampilkan Loading Overlay Rizky Ganteng
             binding.loadingOverlay.visibility = View.VISIBLE
@@ -105,19 +111,41 @@ class HomeFragment : Fragment() {
                 // Beri jeda 1.5 detik agar tampilan "Rizky Ganteng" terlihat keren
                 delay(1500)
                 
-                val photos = PhotoApiClient.apiService.getPhotos()
-                val adapter = PhotoAdapter(photos)
-                binding.rvGallery.adapter = adapter
+                // Load Cat Fact
+                loadCatFact()
                 
-                // List Tampil Vertical
-                binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
+                // Load Photos
+                loadPhoto()
                 
             } catch (e: Exception) {
-                Toast.makeText(requireContext(), "Gagal memuat gambar: ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Gagal memuat data: ${e.message}", Toast.LENGTH_SHORT).show()
             } finally {
                 // Sembunyikan Loading Overlay
                 binding.loadingOverlay.visibility = View.GONE
             }
+        }
+    }
+
+    private suspend fun loadCatFact() {
+        try {
+            val response = CatFactApiClient.apiService.getCatFact()
+            binding.tvCatFact.text = "\"${response.fact}\""
+        } catch (e: Exception) {
+            binding.tvCatFact.text = "Gagal mengambil fakta kucing."
+        }
+    }
+
+    private suspend fun loadPhoto() {
+        try {
+            val photos = PhotoApiClient.apiService.getPhotos()
+            val adapter = PhotoAdapter(photos)
+            binding.rvGallery.adapter = adapter
+            
+            // List Tampil Vertical
+            binding.rvGallery.layoutManager = LinearLayoutManager(requireContext())
+            
+        } catch (e: Exception) {
+            Toast.makeText(requireContext(), "Gagal memuat gambar: ${e.message}", Toast.LENGTH_SHORT).show()
         }
     }
 
